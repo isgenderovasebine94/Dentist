@@ -11,7 +11,7 @@
     html, body { height: 100%; font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1e293b; }
     a { text-decoration: none; color: inherit; }
 
-    /* LOGIN */
+    
     #loginScreen {
       min-height: 100vh;
       display: flex;
@@ -51,7 +51,7 @@
     .login-btn:hover { background: #0284c7; }
     .login-error { color: #ef4444; font-size: 13px; margin-top: 10px; min-height: 18px; }
 
-    /* LAYOUT */
+    
     #adminApp { display: none; min-height: 100vh; }
     .sidebar {
       position: fixed; top: 0; left: 0; bottom: 0;
@@ -91,7 +91,7 @@
     .page-header h1 { font-size: 24px; font-weight: 800; color: #0f172a; }
     .page-header p { color: #64748b; font-size: 14px; margin-top: 4px; }
 
-    /* STATS */
+    
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 28px; }
     .stat-card {
       background: #fff; border-radius: 16px; padding: 22px 20px;
@@ -104,7 +104,7 @@
     .stat-value { font-size: 26px; font-weight: 800; color: #0f172a; }
     .stat-label { font-size: 12px; color: #64748b; font-weight: 500; }
 
-    /* CARDS */
+    
     .card {
       background: #fff; border-radius: 16px;
       border: 1px solid #e2e8f0; margin-bottom: 24px;
@@ -116,7 +116,7 @@
     .card-title { font-size: 16px; font-weight: 700; color: #0f172a; }
     .card-body { padding: 0; }
 
-    /* TABLE */
+   
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; }
     th {
@@ -142,7 +142,7 @@
     .empty-state { text-align: center; padding: 48px 20px; color: #94a3b8; font-size: 14px; }
     .empty-icon { font-size: 40px; margin-bottom: 12px; }
 
-    /* BUTTONS */
+    
     .btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 9px 18px; border-radius: 8px; font-size: 13px;
@@ -159,7 +159,7 @@
     .btn-outline { background: transparent; color: #475569; border: 1.5px solid #e2e8f0; }
     .btn-outline:hover { background: #f8fafc; }
 
-    /* FORMS */
+    
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 20px 24px; }
     .form-grid.single { grid-template-columns: 1fr; }
     .form-group { display: flex; flex-direction: column; gap: 5px; }
@@ -173,10 +173,10 @@
     .form-input:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,.1); }
     .form-footer { padding: 16px 24px; border-top: 1px solid #f1f5f9; display: flex; gap: 10px; justify-content: flex-end; }
 
-    /* STARS */
+    
     .stars { color: #f59e0b; }
 
-    /* TOGGLE */
+    
     .toggle {
       position: relative; display: inline-block; width: 42px; height: 24px;
     }
@@ -193,12 +193,12 @@
     .toggle input:checked + .toggle-slider { background: #0ea5e9; }
     .toggle input:checked + .toggle-slider::before { transform: translateX(18px); }
 
-    /* TABS */
+    
     .tab-nav { display: none; }
     .tab-pane { display: none; }
     .tab-pane.active { display: block; }
 
-    /* DISCOUNT CARD */
+    
     .discount-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 20px 24px; }
     .discount-card {
       border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 20px;
@@ -213,7 +213,7 @@
     .discount-until { font-size: 12px; color: #94a3b8; }
     .discount-actions { display: flex; gap: 8px; margin-top: 14px; }
 
-    /* SERVICE CARD */
+    
     .service-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; padding: 20px 24px; }
     .service-card-admin {
       border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 18px;
@@ -224,10 +224,10 @@
     .service-price-tag { font-size: 13px; font-weight: 600; color: #0ea5e9; }
     .service-card-actions { margin-top: 12px; display: flex; gap: 8px; }
 
-    /* REVIEW ROW */
+    
     .review-text { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-    /* TOAST */
+    
     .toast {
       position: fixed; bottom: 24px; right: 24px;
       background: #0f172a; color: #fff;
@@ -239,7 +239,7 @@
     .toast.success { background: #16a34a; }
     .toast.error { background: #dc2626; }
 
-    /* MODAL */
+    
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,.5);
       z-index: 2000; display: flex; align-items: center; justify-content: center;
@@ -276,7 +276,7 @@
 </head>
 <body>
 
-<!-- ===== LOGIN ===== -->
+
 <div id="loginScreen">
   <div class="login-card">
     <div class="login-logo">🦷</div>
@@ -290,9 +290,9 @@
   </div>
 </div>
 
-<!-- ===== ADMIN APP ===== -->
+
 <div id="adminApp">
-  <!-- Sidebar -->
+  
   <aside class="sidebar">
     <div class="sidebar-logo">
       <span class="sidebar-logo-icon">🦷</span>
@@ -332,10 +332,10 @@
     </div>
   </aside>
 
-  <!-- Main -->
+  
   <main class="main-content">
 
-    <!-- DASHBOARD -->
+    
     <div class="tab-pane active" id="page-dashboard">
       <div class="page-header">
         <h1>İcmal</h1>
@@ -372,7 +372,7 @@
         </div>
       </div>
 
-      <!-- Son randevular -->
+      
       <div class="card">
         <div class="card-header">
           <span class="card-title">Son Randevular</span>
@@ -396,7 +396,7 @@
       </div>
     </div>
 
-    <!-- APPOINTMENTS -->
+    
     <div class="tab-pane" id="page-appointments">
       <div class="page-header">
         <h1>Randevular</h1>
@@ -429,7 +429,7 @@
       </div>
     </div>
 
-    <!-- MESSAGES -->
+    
     <div class="tab-pane" id="page-messages">
       <div class="page-header">
         <h1>Əlaqə Mesajları</h1>
@@ -459,7 +459,7 @@
       </div>
     </div>
 
-    <!-- REVIEWS -->
+   
     <div class="tab-pane" id="page-reviews">
       <div class="page-header">
         <h1>Rəylər</h1>
@@ -489,7 +489,7 @@
       </div>
     </div>
 
-    <!-- SERVICES -->
+    
     <div class="tab-pane" id="page-services">
       <div class="page-header">
         <h1>Xidmətlər</h1>
@@ -506,7 +506,7 @@
       </div>
     </div>
 
-    <!-- DISCOUNTS -->
+    
     <div class="tab-pane" id="page-discounts">
       <div class="page-header">
         <h1>Endirimler</h1>
@@ -526,7 +526,7 @@
   </main>
 </div>
 
-<!-- SERVICE MODAL -->
+
 <div class="modal-overlay" id="serviceModal">
   <div class="modal">
     <div class="modal-header">
@@ -560,7 +560,7 @@
   </div>
 </div>
 
-<!-- DISCOUNT MODAL -->
+
 <div class="modal-overlay" id="discountModal">
   <div class="modal">
     <div class="modal-header">
@@ -590,7 +590,7 @@
   </div>
 </div>
 
-<!-- TOAST -->
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -598,7 +598,7 @@ const API = '/api';
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = 'admin123';
 
-/* ===== AUTH ===== */
+
 function checkAuth() {
   const loggedIn = sessionStorage.getItem('adminLoggedIn');
   if (loggedIn === 'true') {
@@ -631,7 +631,7 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
   location.reload();
 });
 
-/* ===== NAVIGATION ===== */
+
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', () => {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -657,7 +657,7 @@ function refreshPage(pageId) {
   else if (pageId === 'discounts') loadDiscounts();
 }
 
-/* ===== TOAST ===== */
+
 let toastTimer;
 function showToast(msg, type = '') {
   clearTimeout(toastTimer);
@@ -667,7 +667,7 @@ function showToast(msg, type = '') {
   toastTimer = setTimeout(() => t.className = 'toast', 3500);
 }
 
-/* ===== HELPERS ===== */
+
 function fmtDate(iso) {
   if (!iso) return '—';
   return new Date(iso).toLocaleDateString('az-AZ', { day:'2-digit', month:'2-digit', year:'numeric' });
@@ -685,7 +685,7 @@ async function api(path, opts) {
   return r.json();
 }
 
-/* ===== LOAD ALL ===== */
+
 async function loadAll() {
   await Promise.all([
     loadDashboard(),
@@ -724,7 +724,7 @@ async function loadDashboard() {
   } catch(e) { console.error('Dashboard load error', e); }
 }
 
-/* ===== APPOINTMENTS ===== */
+
 let allAppointments = [];
 
 async function loadAppointments() {
@@ -776,7 +776,7 @@ async function deleteAppointment(id) {
   } catch { showToast('Xəta baş verdi', 'error'); }
 }
 
-/* ===== MESSAGES ===== */
+
 async function loadMessages() {
   try {
     const msgs = await api('/contact-messages');
@@ -811,7 +811,7 @@ async function deleteMessage(id) {
   } catch { showToast('Xəta baş verdi', 'error'); }
 }
 
-/* ===== REVIEWS ===== */
+
 async function loadReviews() {
   try {
     const revs = await api('/testimonials');
@@ -849,7 +849,7 @@ async function deleteReview(id) {
   } catch { showToast('Xəta baş verdi', 'error'); }
 }
 
-/* ===== SERVICES ===== */
+
 async function loadServices() {
   try {
     const srvs = await api('/services');
@@ -908,7 +908,7 @@ async function deleteService(id) {
   } catch { showToast('Xəta baş verdi', 'error'); }
 }
 
-/* ===== DISCOUNTS ===== */
+
 async function loadDiscounts() {
   try {
     const discs = await api('/discounts');
@@ -988,7 +988,7 @@ async function deleteDiscount(id) {
   } catch { showToast('Xəta baş verdi', 'error'); }
 }
 
-/* ===== INIT ===== */
+
 checkAuth();
 </script>
 </body>
