@@ -18,14 +18,14 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-/* Mobil menyuda link tıklandıqda bağla */
+
 allNavLinks.forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
   });
 });
 
-/* Aktiv bölməni navbar-da işarələ */
+
 const sections = document.querySelectorAll('section[id]');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -40,9 +40,6 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(sec => observer.observe(sec));
 
-/* ===========================
-   FADE-IN — Scroll Animasiyası
-   =========================== */
 const fadeEls = document.querySelectorAll('.fade-in');
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -60,9 +57,6 @@ fadeEls.forEach((el, i) => {
   fadeObserver.observe(el);
 });
 
-/* ===========================
-   TOAST BİLDİRİŞLƏRİ
-   =========================== */
 const toastEl = document.getElementById('toast');
 let toastTimer = null;
 
@@ -75,9 +69,6 @@ function showToast(message, type = 'default') {
   }, 4000);
 }
 
-/* ===========================
-   HELPER — Form Validation
-   =========================== */
 function setError(inputId, errorId, message) {
   const input = document.getElementById(inputId);
   const error = document.getElementById(errorId);
@@ -98,9 +89,6 @@ function validatePhone(phone) {
   return /^[\+]?[\d\s\-\(\)]{7,}$/.test(phone.trim());
 }
 
-/* ===========================
-   RƏYLƏRİ YÜKLƏ (GET /api/testimonials)
-   =========================== */
 async function loadTestimonials() {
   const list = document.getElementById('testimonialsList');
 
@@ -110,7 +98,7 @@ async function loadTestimonials() {
     const testimonials = await res.json();
     renderTestimonials(testimonials);
   } catch (err) {
-    /* API əlçatan deyilsə LocalStorage-dən oxu */
+   
     const local = getLocalTestimonials();
     if (local.length > 0) {
       renderTestimonials(local);
@@ -156,7 +144,7 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
-/* LocalStorage köməkçiləri */
+
 function getLocalTestimonials() {
   try {
     return JSON.parse(localStorage.getItem('testimonials') || '[]');
@@ -169,9 +157,6 @@ function saveLocalTestimonial(t) {
   localStorage.setItem('testimonials', JSON.stringify(existing));
 }
 
-/* ===========================
-   RƏY MODALI
-   =========================== */
 const reviewModal = document.getElementById('reviewModal');
 const openReviewBtn = document.getElementById('openReviewModal');
 const closeReviewBtn = document.getElementById('closeReviewModal');
@@ -194,7 +179,7 @@ closeReviewBtn.addEventListener('click', closeModal);
 cancelReviewBtn.addEventListener('click', closeModal);
 reviewModal.addEventListener('click', (e) => { if (e.target === reviewModal) closeModal(); });
 
-/* Ulduz seçimi */
+
 const stars = document.querySelectorAll('#starRating .star');
 stars.forEach(star => {
   star.addEventListener('mouseenter', () => updateStars(+star.dataset.value, true));
@@ -215,7 +200,7 @@ function updateStars(value, isHover = false) {
   });
 }
 
-/* Rəy formu göndər */
+
 reviewForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   clearErrors(reviewForm);
@@ -252,7 +237,7 @@ reviewForm.addEventListener('submit', async (e) => {
     const saved = await res.json();
     Object.assign(newReview, saved);
   } catch {
-    /* API əlçatan deyilsə LocalStorage-ə yaz */
+   
     saveLocalTestimonial(newReview);
   }
 
@@ -264,9 +249,7 @@ reviewForm.addEventListener('submit', async (e) => {
   btn.textContent = 'Göndər';
 });
 
-/* ===========================
-   ƏLAQƏ FORMU (POST /api/contact)
-   =========================== */
+
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', async (e) => {
@@ -300,18 +283,15 @@ contactForm.addEventListener('submit', async (e) => {
   btn.disabled = false;
   btn.textContent = 'Göndər';
 
-  /* İstifadəçi tələb etdiyi xüsusi alert */
+ 
   alert('Mesajınız göndərildi! Təşəkkür edirəm.');
 });
 
-/* ===========================
-   RANDEVU FORMU (POST /api/appointments)
-   LocalStorage + API
-   =========================== */
+
 const appointmentForm = document.getElementById('appointmentForm');
 const appointmentSuccess = document.getElementById('appointmentSuccess');
 
-/* Tarix inputuna minimumu bu günə et */
+
 const dateInput = document.getElementById('appDate');
 const today = new Date().toISOString().split('T')[0];
 dateInput.min = today;
@@ -326,7 +306,7 @@ appointmentForm.addEventListener('submit', async (e) => {
   const date = document.getElementById('appDate').value;
   const time = document.getElementById('appTime').value;
 
-  /* Validasiya */
+  
   let valid = true;
 
   if (name.length < 2) {
@@ -361,10 +341,10 @@ appointmentForm.addEventListener('submit', async (e) => {
 
   const appointment = { name, phone, service, date, time };
 
-  /* LocalStorage-ə yaz (backup) */
+  
   saveLocalAppointment(appointment);
 
-  /* API-yə göndər */
+ 
   try {
     const res = await fetch(`${API_BASE}/appointments`, {
       method: 'POST',
@@ -373,7 +353,7 @@ appointmentForm.addEventListener('submit', async (e) => {
     });
     if (!res.ok) throw new Error();
   } catch {
-    /* API xətası — local-da saxlandı, davam et */
+    
   }
 
   btn.disabled = false;
@@ -398,11 +378,10 @@ function resetAppointmentForm() {
   appointmentSuccess.style.display = 'none';
 }
 
-/* Global funksiya kimi et (onclick üçün) */
+
 window.resetAppointmentForm = resetAppointmentForm;
 
-/* ===========================BAŞLANĞIC
-   =========================== */
+
 document.addEventListener('DOMContentLoaded', () => {
   loadTestimonials();
 });
